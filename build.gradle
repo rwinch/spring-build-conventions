@@ -1,3 +1,9 @@
+/* buildscript {
+	dependencies {
+		classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.16'
+	}
+} */
+
 plugins {
 	id "java-gradle-plugin"
 	id "com.jfrog.artifactory" version '4.9.10'
@@ -29,14 +35,17 @@ dependencies {
 	implementation localGroovy()
 
 	implementation 'com.github.ben-manes:gradle-versions-plugin:0.25.0'
-	implementation 'gradle.plugin.org.gretty:gretty:2.3.1'
+	implementation ('gradle.plugin.org.gretty:gretty:2.3.1') {
+		//exclude group: 'org.apache.servicemix.bundles', module: 'org.apache.servicemix.bundles.bcprov-jdk16'
+	}
 	implementation 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.21.1'
 	implementation 'io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE'
 	implementation 'io.spring.gradle:docbook-reference-plugin:0.3.1'
 	implementation 'io.spring.gradle:propdeps-plugin:0.0.10.RELEASE'
 	implementation 'io.spring.javaformat:spring-javaformat-gradle-plugin:0.0.15'
 	implementation 'io.spring.nohttp:nohttp-gradle:0.0.3.RELEASE'
-	implementation 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.12'
+	implementation 'org.asciidoctor:asciidoctor-gradle-plugin:1.6.1'
+	implementation 'org.asciidoctor:asciidoctorj-pdf:1.5.0-beta.8'
 	implementation 'org.hidetake:gradle-ssh-plugin:2.10.1'
 	implementation 'org.jfrog.buildinfo:build-info-extractor-gradle:4.9.10'
 	implementation 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7.1'
